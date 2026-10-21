@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClosingVault</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2317335c'/%3E%3Cpath d='M16 6l9 5v10l-9 5-9-5V11z' fill='none' stroke='%23e8b04a' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23e8b04a'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar" id="topbar" hidden>
+    <a class="brand" href="#/"><span class="logo" aria-hidden="true"></span>ClosingVault</a>
+    <nav class="topnav">
+      <a href="#/">Dashboard</a>
+    </nav>
+    <div class="top-actions">
+      <div class="bell-wrap">
+        <button class="icon-btn" id="bell" aria-label="Notifications">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+          <span class="badge-count" id="bell-count" hidden></span>
+        </button>
+        <div class="dropdown notif-panel" id="notif-panel" hidden></div>
+      </div>
+      <div class="bell-wrap">
+        <button class="avatar" id="user-btn" aria-label="Account"></button>
+        <div class="dropdown user-menu" id="user-menu" hidden></div>
+      </div>
+    </div>
+  </header>
+  <main id="app" class="container"></main>
+  <div id="modal-root"></div>
+  <div id="toasts" aria-live="polite"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
