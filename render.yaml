@@ -1,0 +1,30 @@
+# Render Blueprint: Dashboard → New → Blueprint → pick this repository.
+services:
+  - type: web
+    name: closingvault
+    runtime: node
+    plan: starter            # persistent disks need a paid instance
+    buildCommand: npm ci --omit=dev
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    disk:
+      name: closingvault-data
+      mountPath: /var/data
+      sizeGB: 10
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22.13.0"
+      - key: DATA_DIR
+        value: /var/data
+      - key: TRUST_PROXY
+        value: "1"
+      - key: VAULT_MASTER_KEY   # random 256-bit key, base64 — back it up from the dashboard
+        generateValue: true
+      - key: APP_URL            # e.g. https://closingvault.onrender.com or your custom domain
+        sync: false
+      - key: SMTP_URL           # e.g. smtps://apikey:KEY@smtp.sendgrid.net:465
+        sync: false
+      - key: MAIL_FROM          # e.g. ClosingVault <vault@bramarealestate.com>
+        sync: false

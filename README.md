@@ -69,6 +69,16 @@ Without `SMTP_URL`, outgoing email is captured in the **Dev mailbox** (user menu
 | `DATA_DIR` | Where the database and encrypted files live (default `./data`) |
 | `TRUST_PROXY` | Set to `1` behind a load balancer or reverse proxy, so IP addresses in the audit log are correct |
 
+### Render (recommended)
+
+`render.yaml` sets up the whole service, including a persistent disk and a generated encryption key.
+
+1. In Render: **New → Blueprint**, connect GitHub, and choose this repository.
+2. Fill in `APP_URL`, `SMTP_URL`, and `MAIL_FROM` when prompted, then deploy.
+3. Copy `VAULT_MASTER_KEY` from the service's Environment tab and store it somewhere safe (a password manager).
+
+The disk requires a paid instance (Starter, about $7/month plus about $2.50/month for 10 GB).
+
 ### Docker
 
 ```bash

@@ -34,6 +34,7 @@ app.use('/api', (req, res, next) => {
   next();
 });
 
+app.get('/healthz', (req, res) => res.json({ ok: true }));
 app.use('/api/auth', authRouter);
 app.use('/api', api);
 app.use('/api', (req, res) => res.status(404).json({ error: 'Not found' }));
